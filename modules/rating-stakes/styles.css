@@ -1,0 +1,15 @@
+span.estimates {
+    color: grey;
+}
+
+span.good {
+    color: hsl(88 62% 37%);
+}
+
+span.bad {
+    color: hsl(0 60% 50%);
+}
+
+span.neutral {
+    color: hsl(0 0% 73%);
+}

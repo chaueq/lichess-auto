@@ -1,0 +1,51 @@
+{
+    "manifest_version": 3,
+    "name": "Lichess Auto",
+    "version": "1.0.1",
+    "description": "Automates some stuff on lichess.org",
+    "permissions": [
+        "storage",
+        "unlimitedStorage"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": [
+                "https://lichess.org/*"
+            ],
+            "js": [
+                "lib/settings.js",
+                "lib/modules.js",
+
+                "modules/rating-stakes/api.js",
+                "modules/rating-stakes/lichess_params.js",
+                "modules/rating-stakes/calc.js",
+                "modules/rating-stakes/interface.js",
+                "modules/rating-stakes/main.js",
+                
+                "modules/claim-victory/main.js",
+                
+                "modules/computer-analysis/main.js"
+            ],
+            "css": [
+                "modules/rating-stakes/styles.css"
+            ]
+        }
+    ],
+
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+
+    "options_ui": {
+        "page": "settings/settings.html",
+        "open_in_tab": true
+    },
+
+    "icons": {
+        "16": "icons/16.png",
+        "48": "icons/48.png",
+        "64": "icons/64.png",
+        "128": "icons/128.png"
+    }
+}

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lichess Auto — Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="page-glow page-glow--one" aria-hidden="true"></div>
+    <div class="page-glow page-glow--two" aria-hidden="true"></div>
+
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">
+                    <img src="../icons/128.png" alt="" width="48" height="48">
+                </div>
+                <div>
+                    <p class="brand-name">Lichess Auto</p>
+                    <p class="brand-tagline">Quiet helpers for your games</p>
+                </div>
+            </div>
+
+            <nav aria-label="Settings sections">
+                <a class="nav-item nav-item--active" href="#modules" aria-current="page">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M4 6h16M4 12h16M4 18h16"/>
+                        <circle cx="8" cy="6" r="2"/>
+                        <circle cx="16" cy="12" r="2"/>
+                        <circle cx="10" cy="18" r="2"/>
+                    </svg>
+                    Modules
+                    <span class="nav-count">3</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-note">
+                <span class="status-dot" aria-hidden="true"></span>
+                <div>
+                    <strong>Ready on lichess.org</strong>
+                    <p>Your preferences are stored locally in Chrome.</p>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <span>Extension version</span>
+                <span class="version" id="version">v—</span>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="page-header">
+                <p class="eyebrow">Extension preferences</p>
+                <h1>Settings</h1>
+                <p class="page-description">Choose which automations run while you play on Lichess.</p>
+            </header>
+
+            <section class="settings-panel" id="modules" aria-labelledby="modules-heading">
+                <div class="panel-heading">
+                    <div>
+                        <h2 id="modules-heading">Automation modules</h2>
+                        <p>Turn individual helpers on or off. Changes apply the next time a matching page loads.</p>
+                    </div>
+                    <span class="module-total">3 modules</span>
+                </div>
+
+                <div class="module-list">
+                    <article class="module-card">
+                        <div class="module-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false">
+                                <path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.64 5.64l2.12 2.12m8.48 8.48 2.12 2.12m0-12.72-2.12 2.12M7.76 16.24l-2.12 2.12"/>
+                                <circle cx="12" cy="12" r="4"/>
+                                <path d="m10.6 12 1 1 2-2"/>
+                            </svg>
+                        </div>
+                        <label class="module-copy" for="claim_victory">
+                            <span class="module-name">Claim victory</span>
+                            <span class="module-description">Automatically claims the win when your opponent runs out of time.</span>
+                            <span class="module-context">Available throughout lichess.org</span>
+                        </label>
+                        <div class="module-control">
+                            <span class="module-state" data-state-for="claim_victory">On</span>
+                            <label class="switch" aria-label="Toggle Claim victory">
+                                <input id="claim_victory" data-module="claim_victory" type="checkbox" role="switch" disabled>
+                                <span class="switch-track" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon module-icon--analysis" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false">
+                                <path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/>
+                                <path d="M2.5 19.5h19"/>
+                            </svg>
+                        </div>
+                        <label class="module-copy" for="computer_analysis">
+                            <span class="module-name">Computer analysis</span>
+                            <span class="module-description">Automatically requests a computer analysis after a game.</span>
+                            <span class="module-context">Runs on post-game analysis pages</span>
+                        </label>
+                        <div class="module-control">
+                            <span class="module-state" data-state-for="computer_analysis">On</span>
+                            <label class="switch" aria-label="Toggle Computer analysis">
+                                <input id="computer_analysis" data-module="computer_analysis" type="checkbox" role="switch" disabled>
+                                <span class="switch-track" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon module-icon--stakes" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false">
+                                <path d="M3 3v18h18"/>
+                                <path d="M7 16l4-6 4 4 5-8"/>
+                            </svg>
+                        </div>
+                        <label class="module-copy" for="rating_stakes">
+                            <span class="module-name">Rating stakes</span>
+                            <span class="module-description">Shows estimated rating changes for win, draw, and loss during rated games.</span>
+                            <span class="module-context">Available throughout lichess.org</span>
+                        </label>
+                        <div class="module-control">
+                            <span class="module-state" data-state-for="rating_stakes">On</span>
+                            <label class="switch" aria-label="Toggle Rating stakes">
+                                <input id="rating_stakes" data-module="rating_stakes" type="checkbox" role="switch" disabled>
+                                <span class="switch-track" aria-hidden="true"></span>
+                            </label>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="action-bar">
+                    <div class="save-message" id="save-status" role="status" aria-live="polite">
+                        <span class="save-message-dot" aria-hidden="true"></span>
+                        <span id="save-status-text">Loading preferences…</span>
+                    </div>
+                    <div class="actions">
+                        <button class="button button--secondary" id="restore-button" type="button" disabled>Restore defaults</button>
+                        <button class="button button--primary" id="save-button" type="button" disabled>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="m5 12 4 4L19 6"/>
+                            </svg>
+                            Save changes
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../lib/settings.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

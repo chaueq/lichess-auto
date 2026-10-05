@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lichess Auto</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <main class="popup-shell">
+        <header class="brand">
+            <div class="brand-mark">
+                <img src="../icons/128.png" alt="" width="48" height="48">
+            </div>
+            <div class="brand-copy">
+                <h1>Lichess Auto</h1>
+                <p>Quiet helpers for your games</p>
+            </div>
+            <span class="version" id="version" aria-label="Extension version">v—</span>
+        </header>
+
+        <section class="modules" aria-labelledby="modules-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Automation</p>
+                    <h2 id="modules-heading">Modules</h2>
+                </div>
+                <span class="save-status" id="save-status" role="status" aria-live="polite"></span>
+            </div>
+
+            <div class="module-list">
+                <article class="module-card">
+                    <div class="module-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.64 5.64l2.12 2.12m8.48 8.48 2.12 2.12m0-12.72-2.12 2.12M7.76 16.24l-2.12 2.12"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="m10.6 12 1 1 2-2"/>
+                        </svg>
+                    </div>
+                    <label class="module-copy" for="claim_victory">
+                        <span class="module-name">Claim victory</span>
+                        <span class="module-description">Claims the win when your opponent runs out of time.</span>
+                    </label>
+                    <div class="module-control">
+                        <span class="module-state" data-state-for="claim_victory">On</span>
+                        <label class="switch" aria-label="Toggle Claim victory">
+                            <input id="claim_victory" data-module="claim_victory" type="checkbox" role="switch">
+                            <span class="switch-track" aria-hidden="true"></span>
+                        </label>
+                    </div>
+                </article>
+
+                <article class="module-card">
+                    <div class="module-icon module-icon--analysis" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/>
+                            <path d="M2.5 19.5h19"/>
+                        </svg>
+                    </div>
+                    <label class="module-copy" for="computer_analysis">
+                        <span class="module-name">Computer analysis</span>
+                        <span class="module-description">Automatically requests analysis after a game.</span>
+                    </label>
+                    <div class="module-control">
+                        <span class="module-state" data-state-for="computer_analysis">On</span>
+                        <label class="switch" aria-label="Toggle Computer analysis">
+                            <input id="computer_analysis" data-module="computer_analysis" type="checkbox" role="switch">
+                            <span class="switch-track" aria-hidden="true"></span>
+                        </label>
+                    </div>
+                </article>
+
+                <article class="module-card">
+                    <div class="module-icon module-icon--stakes" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M3 3v18h18"/>
+                            <path d="M7 16l4-6 4 4 5-8"/>
+                        </svg>
+                    </div>
+                    <label class="module-copy" for="rating_stakes">
+                        <span class="module-name">Rating stakes</span>
+                        <span class="module-description">Shows estimated rating changes for win, draw, and loss.</span>
+                    </label>
+                    <div class="module-control">
+                        <span class="module-state" data-state-for="rating_stakes">On</span>
+                        <label class="switch" aria-label="Toggle Rating stakes">
+                            <input id="rating_stakes" data-module="rating_stakes" type="checkbox" role="switch">
+                            <span class="switch-track" aria-hidden="true"></span>
+                        </label>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <footer>
+            <span><span class="status-dot" aria-hidden="true"></span>Ready on lichess.org</span>
+            <button class="settings-button" id="settings-button" type="button" aria-label="Open extension settings">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06-2.83 2.83-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21h-4v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06-2.83-2.83.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3v-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06 2.83-2.83.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3h4v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06 2.83 2.83-.06.06A1.65 1.65 0 0 0 19.4 9c.12.6.65 1.01 1.26 1.01H21v4h-.09A1.65 1.65 0 0 0 19.4 15Z"/>
+                </svg>
+            </button>
+        </footer>
+    </main>
+
+    <script src="popup.js"></script>
+</body>
+</html>
